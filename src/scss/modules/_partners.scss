@@ -1,0 +1,132 @@
+.partners {
+  background-color: $active;
+  padding: 30px 0 130px;
+  @include atSmall {
+    padding: 30px 0 200px;
+  }
+  .heading-container {
+    margin-bottom: 50px;
+    text-align: center;
+    @include atLarge {
+      text-align: unset;
+      margin-left: 70px;
+    }
+  }
+}
+
+.partners_wrapper {
+  margin: 0 auto;
+  max-width: 300px;
+
+  @include atSmall {
+    max-width: 570px;
+  }
+  @include atSlider {
+    max-width: 1170px;
+  }
+}
+
+.slider_wrapper {
+  margin: 0 -15px 150px -15px;
+  position: relative;
+  @include atMedium {
+    margin-bottom: 80px;
+  }
+}
+
+.partners_card {
+  display: block;
+  width: 270px;
+  height: 220px;
+  padding: 20px;
+  position: relative;
+  background-color: $white;
+  border-radius: 10px;
+}
+.slick-slide {
+  width: 270px;
+  margin: 0 15px;
+}
+
+.partners_card_logo {
+  img {
+    margin: 0 auto;
+  }
+}
+.partners_card_text-content {
+  position: absolute;
+  bottom: 25px;
+  h3 {
+    font-weight: 300;
+    font-size: 1.125em;
+  }
+  a {
+    color: $dark;
+    text-decoration: none;
+  }
+
+  p {
+    font-size: 0.875em;
+  }
+}
+
+.slider-prev-btn,
+.slider-next-btn {
+  display: inline-block;
+  font-size: 2em;
+  color: $white;
+  padding: 14px 22px;
+  background-color: $main;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  margin-top: 20px;
+  @include atMedium {
+    margin: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+.slider-prev-btn {
+  left: 20%;
+  @include atSmall {
+    left: 30%;
+  }
+  @include atMedium {
+    left: -95px;
+  }
+  @include atSlider {
+    left: 0;
+  }
+  @include atSliderEnds {
+    left: -80px;
+  }
+}
+
+.slider-next-btn {
+  right: 20%;
+  @include atSmall {
+    right: 30%;
+  }
+  @include atMedium {
+    right: -95px;
+  }
+  @include atSlider {
+    right: 0;
+  }
+  @include atSliderEnds {
+    right: -80px;
+  }
+}
+.slick-arrow {
+  @include easeOut;
+}
+.slick-arrow:hover:not(.slick-disabled) {
+  color: $brown;
+  background-color: lighten($main, 3);
+}
+.slick-disabled {
+  background-color: transparent;
+  color: $grey;
+  cursor: default;
+}

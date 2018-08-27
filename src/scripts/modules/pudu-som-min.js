@@ -1,0 +1,1 @@
+String.prototype.setCharAt=function(t,r){if(1!=r.length||t<0||t>=this.length)throw"IllegalArgumentException";return this.substr(0,t)+r+this.substr(t+1)},String.prototype.removeCharAt=function(t){if(t<0||t>=this.length)throw"IllegalArgumentException";return this.substr(0,t)+this.substr(t+1)};

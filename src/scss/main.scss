@@ -1,0 +1,92 @@
+/* First Party Packages */
+@import "normalize.css";
+@import "slick-carousel/slick/slick.css";
+@import "./base/fonts";
+@import "./base/vars";
+@import "./base/global";
+@import "./base/media";
+@import "./base/tingle";
+
+/* Modules */
+@import "./modules/hero";
+@import "./modules/about";
+@import "./modules/benefits";
+@import "./modules/app";
+@import "./modules/steps";
+@import "./modules/partners";
+@import "./modules/footer";
+@import "./modules/contact-form";
+
+.shadow {
+  box-shadow: 0px 3px 20px $shadow;
+}
+
+.shadow-card {
+  box-shadow: 0px 1px 5px rgba(106, 106, 106, 0.25);
+}
+
+.btn {
+  position: absolute;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.125em;
+  color: $white;
+  background-color: $main;
+  padding: 11px 30px;
+  border: none;
+  overflow: hidden;
+  border-radius: 50px;
+  transform: perspective(1px) translateZ(0);
+  outline: none;
+  cursor: pointer;
+  &-m-l {
+    display: block;
+    width: 200px;
+    @include undSlider {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @include atSlider {
+      display: initial;
+      max-width: initial;
+      // margin: 0 0 0 70px;
+    }
+  }
+
+  &-no-pos {
+    position: initial;
+  }
+
+  &[disabled] {
+    color: darken($color: $grey, $amount: 30);
+    background-color: $grey;
+    cursor: not-allowed;
+  }
+}
+
+.btn:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: darken($color: $main, $amount: 6);
+  border-radius: 100%;
+
+  transform: scale(0, 0);
+  transition-property: transform;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+}
+
+.btn[disabled]::before {
+  background-color: $grey;
+}
+.btn:hover:before,
+.btn:focus:before,
+.btn:active:before {
+  transform: scale(1, 3.5);
+}

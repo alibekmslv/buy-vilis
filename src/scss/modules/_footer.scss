@@ -1,0 +1,72 @@
+.footer {
+  padding-top: 50px;
+}
+
+.footer_wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 80px;
+  @include atMedium {
+    text-align: initial;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 714px;
+    margin: 0 auto;
+  }
+  @include atSmall {
+    margin-bottom: 55px;
+  }
+}
+
+.footer_wrapper {
+  div:not(:last-child) {
+    margin-bottom: 50px;
+    @include atMedium {
+      margin-bottom: 0;
+    }
+  }
+  h4 {
+    margin-bottom: 6px;
+  }
+  a {
+    display: inline-block;
+    position: relative;
+    font-size: 0.938em;
+    color: $dark;
+    text-decoration: none;
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+    i {
+      width: 17px;
+      margin-right: 15px;
+    }
+    i.fa-facebook-f {
+      text-align: center;
+    }
+  }
+  a::before {
+    content: "";
+    bottom: -1px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: $main;
+    @include easeOut;
+    transform: scaleX(0);
+  }
+  a:hover:before {
+    transform: scaleX(1);
+  }
+}
+
+.footer_absolute {
+  background-color: $main;
+  color: $white;
+  text-align: center;
+  font-size: 1.125em;
+  font-weight: 300;
+  padding: 10px 0;
+}

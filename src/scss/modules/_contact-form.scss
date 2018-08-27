@@ -1,0 +1,73 @@
+.contact-form {
+  margin-top: 45px;
+  label,
+  span {
+    font-size: 0.875em;
+  }
+  p {
+    max-width: 270px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  p:last-of-type {
+    font-size: 0.8em;
+    display: block;
+    margin: 0 auto;
+    input[type="checkbox"] {
+      margin-right: 10px;
+    }
+  }
+  button {
+    display: block;
+    margin: 30px auto 0;
+    border-width: 0;
+  }
+}
+
+.popup_heading {
+  text-align: center;
+  p {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  &-centered {
+    @include atSmall {
+      margin: 4rem;
+    }
+  }
+}
+
+.modal {
+  .tingle-modal-box {
+    border-radius: 5px;
+    margin: auto auto;
+    width: 85%;
+    @include atSmall {
+      max-width: 500px;
+    }
+  }
+
+  .tingle-modal__close {
+    font-size: 1.5em;
+    @media (max-width: 530px) {
+      width: 1rem;
+    }
+  }
+  .tingle-modal__closeIcon {
+    outline: none;
+  }
+}
+
+.tingle-modal-box__content {
+  @media (max-width: 530px) {
+    padding: 1rem;
+  }
+  padding: 1.7rem;
+}
+
+.pudu-inpMask {
+  letter-spacing: 1px;
+}

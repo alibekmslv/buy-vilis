@@ -1,0 +1,88 @@
+.app {
+  background: $active url("../img/app/app-background-mobile.svg");
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  padding: 65px 0 90px;
+  overflow: hidden;
+  @include atSmall {
+    background: $active url("../img/app/app-background-tablet.svg");
+    background-position: right bottom;
+    background-repeat: no-repeat;
+  }
+
+  @include atLarge {
+    background: $active url("../img/app/app-background.svg");
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    padding-bottom: 50px;
+  }
+  .heading {
+    text-align: center;
+  }
+  .subtitle {
+    text-align: center;
+    margin-bottom: 25px;
+    @include atSmall {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.app_wrapper {
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  padding: 0 20px;
+  justify-content: space-around;
+  align-items: center;
+  @include atSmall {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    max-width: 834px;
+    padding: 0 32px;
+  }
+
+  @include atLarge {
+    max-width: 1170px;
+    padding: 0 70px;
+  }
+}
+
+.app_picture {
+  max-width: 230px;
+  margin-bottom: 45px;
+  @include atSmall {
+    margin-bottom: 0;
+  }
+  @include atLarge {
+    margin-left: 60px;
+  }
+}
+
+.app_text-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app_text-content_list {
+  max-width: 456px;
+  text-align: center;
+  li {
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    @include atSmall {
+      font-size: 1.5em;
+    }
+  }
+  li:not(:last-child) {
+    margin-bottom: 25px;
+  }
+  img {
+    max-width: 40px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25));
+    margin-right: 25px;
+  }
+}

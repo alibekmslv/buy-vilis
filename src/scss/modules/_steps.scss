@@ -1,0 +1,81 @@
+.steps {
+  background: $lightwhite url("../img/steps/steps-background-mobile.svg");
+  background-position: left top;
+  background-repeat: no-repeat;
+  padding: 65px 0 60px;
+  @include atSmall {
+    background: $lightwhite url("../img/steps/steps-background-tablet.svg");
+    background-position: left top;
+    background-repeat: no-repeat;
+    padding-bottom: 35px;
+  }
+  @include atLarge {
+    background: $lightwhite url("../img/steps/steps-background.svg");
+    background-position: left top;
+    background-repeat: no-repeat;
+    padding-bottom: 145px;
+  }
+
+  .heading {
+    text-align: center;
+    max-width: 280px;
+    margin: 0 auto 25px;
+
+    @include atSmall {
+      max-width: 487px;
+    }
+    @include atLarge {
+      margin-bottom: 50px;
+    }
+  }
+}
+
+.steps_wrapper {
+  padding: 0 20px;
+  margin: 0 auto;
+
+  @include atSmall {
+    max-width: 834px;
+    padding: 0 30px;
+  }
+  @include atLarge {
+    max-width: 1170px;
+    padding: 0 143px;
+  }
+}
+
+.steps_icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include atSmall {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: unset;
+  }
+}
+
+.steps_icon {
+  max-width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &:not(:last-child) {
+    margin-bottom: 45px;
+  }
+  @include atSmall {
+    margin-bottom: 0;
+  }
+  img {
+    margin-bottom: 30px;
+    @include atLarge {
+      margin-bottom: 40px;
+    }
+  }
+
+  h3 {
+    font-size: 1.125em;
+    font-weight: 300;
+    text-align: center;
+  }
+}
