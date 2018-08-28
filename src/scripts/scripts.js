@@ -119,18 +119,35 @@ $(".slider").slick({
 let modal = new tingle.modal({
   closeMethods: ["overlay", "button", "escape"],
   closeLabel: "Закрыть",
-  cssClass: ["modal", "custom-class-2"],
+  cssClass: ["modal"],
   onOpen: function() {
-    console.log("modal open");
-
-    //Form Validation and Sending
+    //Form Validation
+    const name = document.getElementById("name");
     const phone = document.getElementById("phone");
-    const contactForm = document.getElementById("contact-form");
+    const submitButton = document.getElementById("contact-form-submit");
+    submitButton.disabled = true;
+    const formInputs = [name, phone];
+    const regExName = /.{2,40}/;
+    const regExPhone = /\+[7]\(\d{3}\)\d{3}\-\d{2}\-\d{2}/;
+    function checkInput() {
+      if (regExName.test(name.value) && regExPhone.test(phone.value)) {
+        submitButton.disabled = false;
+      } else {
+        submitButton.disabled = true;
+      }
+    }
+
+    formInputs.forEach(function(e) {
+      e.oninput = function() {
+        checkInput();
+      };
+    });
 
     // let phoneMask = new IMask(phone, {
     //   mask: "+{7} (000) 000-00-00"
     // });
 
+    const contactForm = document.getElementById("contact-form");
     contactForm.addEventListener("submit", sendForm);
 
     function sendForm(e) {
@@ -171,7 +188,7 @@ modal.setContent(`
 <form id="contact-form" class="contact-form">
   <p>
     <label for="name">Компания</label>
-    <input type="text" id="name" name="partner_name" required>
+    <input type="text" id="name" name="partner_name" required>  
   </p>
   <p>
     <label for="phone">Телефон</label>

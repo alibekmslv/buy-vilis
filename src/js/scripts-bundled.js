@@ -10621,18 +10621,35 @@ function toggleMenu() {
 var modal = new _tingle2.default.modal({
   closeMethods: ["overlay", "button", "escape"],
   closeLabel: "Закрыть",
-  cssClass: ["modal", "custom-class-2"],
+  cssClass: ["modal"],
   onOpen: function onOpen() {
-    console.log("modal open");
-
-    //Form Validation and Sending
+    //Form Validation
+    var name = document.getElementById("name");
     var phone = document.getElementById("phone");
-    var contactForm = document.getElementById("contact-form");
+    var submitButton = document.getElementById("contact-form-submit");
+    submitButton.disabled = true;
+    var formInputs = [name, phone];
+    var regExName = /.{2,40}/;
+    var regExPhone = /\+[7]\(\d{3}\)\d{3}\-\d{2}\-\d{2}/;
+    function checkInput() {
+      if (regExName.test(name.value) && regExPhone.test(phone.value)) {
+        submitButton.disabled = false;
+      } else {
+        submitButton.disabled = true;
+      }
+    }
+
+    formInputs.forEach(function (e) {
+      e.oninput = function () {
+        checkInput();
+      };
+    });
 
     // let phoneMask = new IMask(phone, {
     //   mask: "+{7} (000) 000-00-00"
     // });
 
+    var contactForm = document.getElementById("contact-form");
     contactForm.addEventListener("submit", sendForm);
 
     function sendForm(e) {
@@ -10665,7 +10682,7 @@ var modal = new _tingle2.default.modal({
   }
 });
 
-modal.setContent("    \n<div class=\"popup_heading\">\n  <h2>\u0421\u0442\u0430\u0442\u044C \u043F\u0430\u0440\u0442\u043D\u0435\u0440\u043E\u043C</h2>\n  <p>\u041E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u0441\u0432\u043E\u0438 \u043A\u043E\u043D\u0442\u0430\u0442\u043D\u044B\u0435 \u0434\u0430\u043D\u043D\u044B\u0435 \u0438 BuyVilis \u0441\u0432\u044F\u0436\u0435\u0442\u0441\u044F \u0441 \u0412\u0430\u043C\u0438</p>\n</div>\n<form id=\"contact-form\" class=\"contact-form\">\n  <p>\n    <label for=\"name\">\u041A\u043E\u043C\u043F\u0430\u043D\u0438\u044F</label>\n    <input type=\"text\" id=\"name\" name=\"partner_name\" required>\n  </p>\n  <p>\n    <label for=\"phone\">\u0422\u0435\u043B\u0435\u0444\u043E\u043D</label>\n    <input type=\"tel\" id=\"phone\" name=\"partner_phone\" class=\"pudu-inpMask\" data-mask=\"phone_ru\" required>\n  </p>\n  <p>\n    <input type=\"checkbox\" id=\"checkbox-privacy\" checked required><span>\u0412\u0430\u0448\u0438 \u0434\u0430\u043D\u043D\u044B\u0435 \u043D\u0430\u0434\u0435\u0436\u043D\u043E \u0437\u0430\u0449\u0438\u0449\u0435\u043D\u044B</span><br>\n    <label for=\"checkbox-privacy\">\u041F\u0440\u0438\u043D\u044F\u0442\u044C <a href=\"https://buyvilis.ru/Privacy-Policy.pdf\" target=\"_blank\">\u043F\u043E\u043B\u0438\u0442\u0438\u043A\u0443 \u043A\u043E\u043D\u0444\u0438\u0434\u0435\u043D\u0446\u0438\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u0438</a></label> \n  </p>\n<button id=\"contact-form-submit\" type=\"submit\" class=\"btn btn-no-pos\">\u0421\u0442\u0430\u0442\u044C \u043F\u0430\u0440\u0442\u043D\u0435\u0440\u043E\u043C</button>\n</form>");
+modal.setContent("    \n<div class=\"popup_heading\">\n  <h2>\u0421\u0442\u0430\u0442\u044C \u043F\u0430\u0440\u0442\u043D\u0435\u0440\u043E\u043C</h2>\n  <p>\u041E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u0441\u0432\u043E\u0438 \u043A\u043E\u043D\u0442\u0430\u0442\u043D\u044B\u0435 \u0434\u0430\u043D\u043D\u044B\u0435 \u0438 BuyVilis \u0441\u0432\u044F\u0436\u0435\u0442\u0441\u044F \u0441 \u0412\u0430\u043C\u0438</p>\n</div>\n<form id=\"contact-form\" class=\"contact-form\">\n  <p>\n    <label for=\"name\">\u041A\u043E\u043C\u043F\u0430\u043D\u0438\u044F</label>\n    <input type=\"text\" id=\"name\" name=\"partner_name\" required>  \n  </p>\n  <p>\n    <label for=\"phone\">\u0422\u0435\u043B\u0435\u0444\u043E\u043D</label>\n    <input type=\"tel\" id=\"phone\" name=\"partner_phone\" class=\"pudu-inpMask\" data-mask=\"phone_ru\" required>\n  </p>\n  <p>\n    <input type=\"checkbox\" id=\"checkbox-privacy\" checked required><span>\u0412\u0430\u0448\u0438 \u0434\u0430\u043D\u043D\u044B\u0435 \u043D\u0430\u0434\u0435\u0436\u043D\u043E \u0437\u0430\u0449\u0438\u0449\u0435\u043D\u044B</span><br>\n    <label for=\"checkbox-privacy\">\u041F\u0440\u0438\u043D\u044F\u0442\u044C <a href=\"https://buyvilis.ru/Privacy-Policy.pdf\" target=\"_blank\">\u043F\u043E\u043B\u0438\u0442\u0438\u043A\u0443 \u043A\u043E\u043D\u0444\u0438\u0434\u0435\u043D\u0446\u0438\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u0438</a></label> \n  </p>\n<button id=\"contact-form-submit\" type=\"submit\" class=\"btn btn-no-pos\">\u0421\u0442\u0430\u0442\u044C \u043F\u0430\u0440\u0442\u043D\u0435\u0440\u043E\u043C</button>\n</form>");
 
 var openModalBtn = document.getElementById("open-modal");
 openModalBtn.addEventListener("click", openModal);
