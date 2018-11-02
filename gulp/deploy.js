@@ -5,8 +5,9 @@ gulp.task("deploy", function() {
   return gulp.src("./dist/**").pipe(
     rsync({
       root: "dist/",
-      hostname: "alibekup_psign@psign.ru",
-      destination: "/home/a/alibekup/psign.ru/public_html"
+      hostname: "ali@buy-vilis.ru",
+      port: 11666,
+      destination: "/var/www/buy-vilis.ru/"
     })
   );
 });
