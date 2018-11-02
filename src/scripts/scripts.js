@@ -1,7 +1,7 @@
 import MoveTo from "moveto";
 import Rellax from "rellax";
 import $ from "jquery";
-import slick from "slick-carousel";
+// import slick from "slick-carousel";
 // import IMask from "imask";
 import tingle from "tingle.js";
 // import { lory } from "lory.js";
@@ -79,41 +79,41 @@ function toggleMenu() {
   }
 }
 
-// Slider;
-$(".slider").slick({
-  infinite: false,
-  slidesToShow: 4,
-  slidesToScroll: 1,
-  nextArrow: $(".slider-next-btn"),
-  prevArrow: $(".slider-prev-btn"),
-  responsive: [
-    {
-      breakpoint: 1170,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1
-      }
-    },
-    {
-      breakpoint: 800,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        autoplay: true,
-        infinite: true
-      }
-    },
-    {
-      breakpoint: 530,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        infinite: true
-      }
-    }
-  ]
-});
+// // Slider;
+// $(".slider").slick({
+//   infinite: false,
+//   slidesToShow: 4,
+//   slidesToScroll: 1,
+//   nextArrow: $(".slider-next-btn"),
+//   prevArrow: $(".slider-prev-btn"),
+//   responsive: [
+//     {
+//       breakpoint: 1170,
+//       settings: {
+//         slidesToShow: 2,
+//         slidesToScroll: 1
+//       }
+//     },
+//     {
+//       breakpoint: 800,
+//       settings: {
+//         slidesToShow: 2,
+//         slidesToScroll: 2,
+//         autoplay: true,
+//         infinite: true
+//       }
+//     },
+//     {
+//       breakpoint: 530,
+//       settings: {
+//         slidesToShow: 1,
+//         slidesToScroll: 1,
+//         autoplay: true,
+//         infinite: true
+//       }
+//     }
+//   ]
+// });
 
 //Modal Window
 let modal = new tingle.modal({
