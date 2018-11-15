@@ -68,11 +68,14 @@
 
 .app_text-content_list {
   max-width: 456px;
-  text-align: center;
+  text-align: left;
   li {
     font-size: 1em;
     display: flex;
     align-items: center;
+    p {
+      font-weight: bold;
+    }
     @include atSmall {
       font-size: 1.5em;
     }
